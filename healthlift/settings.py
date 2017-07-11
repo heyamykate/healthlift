@@ -29,7 +29,7 @@ DEBUG = False
 if DEBUG:
     ALLOWED_HOSTS = []
 else:
-    ALLOWED_HOSTS = ['104.236.124.196','akcodes.com']
+    ALLOWED_HOSTS = ['104.236.124.196','akcodes.com','localhost','127.0.0.1']
 
 
 SITE_TITLE = "HealthLift"
@@ -152,13 +152,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'main/static'),)
+print BASE_DIR
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'main/static'),)
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'main/static/')
+print STATIC_ROOT
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+print MEDIA_ROOT
 
 try:
     from local_settings import *
