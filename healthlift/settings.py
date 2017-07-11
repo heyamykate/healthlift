@@ -152,15 +152,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-print BASE_DIR
-#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'main/static'),)
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'main/static/')
-print STATIC_ROOT
+print('static root: ', STATIC_ROOT)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-print MEDIA_ROOT
+print('media root: ', MEDIA_ROOT)
 
 try:
     from local_settings import *
