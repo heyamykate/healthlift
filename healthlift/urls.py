@@ -24,6 +24,4 @@ urlpatterns = [
     url(r'^$', landing, name="home"),
     url(r'^contact/', contact, name="contact"),
     url(r'^admin/', admin.site.urls),
-]
-if settings.DEBUG:
-    urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
