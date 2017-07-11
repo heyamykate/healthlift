@@ -33,7 +33,7 @@ def contact(request):
 
         try:
             contact.save()
-        except Exception, e:
-            print('error: ', e)
+        except Exception:
+            print('error')
 
         return HttpResponse("Success!", status=200)
