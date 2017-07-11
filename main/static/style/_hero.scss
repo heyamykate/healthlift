@@ -1,0 +1,113 @@
+.hero {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: $white;
+  overflow: hidden;
+  @include device(mobile) {
+    height: 100vh;
+  }
+
+  .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    position: relative;
+    z-index: 3;
+    margin-top: 20px;
+    @include device(mobile) {
+      display: none;
+    }
+    a {
+      background: $light-blue;
+      padding: 20px 40px;
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $white;
+      text-decoration: none;
+      text-align: center;
+      text-transform: uppercase;
+      @include roboto-med;
+      letter-spacing: 1px;
+      border-radius: 20px;
+      transition: all 0.25s ease;
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    filter: brightness(0.6);
+  }
+
+  #arrow {
+    position: absolute;
+    bottom: 29px;
+    width: 75.7px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 1;
+    animation: nudge 5s infinite ease-out;
+    @include device(mobile) {
+      text-align: center;
+    }
+  }
+
+  .inner {
+    width: 60%;
+    max-width: 900px;
+    text-align: center;
+    padding: 60px 0px;
+    position: relative;
+    overflow: visible;
+    z-index: 3;
+    @include device(mobile) {
+      width: 90%;
+      padding: 14px 0px;
+    }
+    &:before,
+    &:after {
+      width: 100%;
+      height: 3px;
+      background: $light-blue;
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+    &:before {
+      top: 2px;
+    }
+    &:after {
+      bottom: 0;
+    }
+    svg {
+      width: 80%;
+      #health {
+        fill: #fff;
+      }
+    }
+  }
+
+}

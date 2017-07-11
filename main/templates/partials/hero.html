@@ -1,0 +1,15 @@
+{% load svg %}
+<div class="landing">
+  <div class="hero">
+    <div class="bg"
+     style="background-image:url({{ page.hero_bg }})"
+    ></div>
+    <div class="overlay"></div>
+    <div class="inner">
+      {% svg 'header' %}
+    </div>
+    <i id="arrow">
+      {% svg 'arrow' %}
+    </i>
+  </div>
+</div>

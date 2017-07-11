@@ -1,0 +1,23 @@
+@import "reset";
+
+// variables, mixins, etc
+@import "fonts";
+@import "utils";
+@import "sweetalert";
+
+// page sections
+@import "hero";
+@import "blocks";
+@import "about";
+@import "team";
+@import "contact";
+@import "companies";
+
+// globals
+@import "nav";
+@import "footer";
+
+body {
+  @include font-smoothing(on);
+  @include roboto-reg;
+}

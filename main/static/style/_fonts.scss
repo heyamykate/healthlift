@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300,400|Roboto:300,400,500');
+
+$sans-serif: 'Roboto', sans-serif;
+$serif: 'Roboto Slab', serif;
+
+@mixin roboto-light() {
+  font-family: $sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@mixin roboto-reg() {
+  font-family: $sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+@mixin roboto-med() {
+  font-family: $sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin roboto-slab-light() {
+  font-family: $serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@mixin roboto-slab-reg() {
+  font-family: $serif;
+  font-weight: 400;
+  font-style: normal;
+}

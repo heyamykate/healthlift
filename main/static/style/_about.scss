@@ -1,0 +1,82 @@
+.about {
+  box-shadow: 0 26px 29px -6px rgba(0,0,0,0.3);
+  z-index: 3;
+  .copy {
+    width: 45%;
+    text-align: left;
+    @include device(mobile) {
+      width: 100%;
+    }
+    p {
+      @include roboto-slab-light;
+      font-size: 18px;
+      line-height: 1.6;
+      @include device(mobile) {
+        font-size: 16px;
+      }
+    }
+  }
+  .img {
+    width: 50%;
+    position: relative;
+    @include device(mobile) {
+      width: 100%;
+      padding-bottom: 30px;
+    }
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.mission {
+  box-shadow: 0 26px 29px -6px rgba(0,0,0,0.3);
+  z-index: 3;
+  .inner {
+    flex-direction: column;
+    justify-content: center;
+    .copy {
+      width: 100%;
+      max-width: 1000px;
+      text-align: justify;
+      padding-top: 50px;
+      p {
+        @include roboto-slab-light;
+        font-size: 18px;
+        line-height: 1.6;
+        @include device(mobile) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .pullquote {
+    position: relative;
+    width: 49%;
+    @include device(mobile) {
+      width: 100%;
+    }
+    blockquote {
+      margin:20px 0;
+      padding:0 50px;
+      font-size:150%;
+      line-height:100%;
+      &:before,
+      &:after {
+        position: absolute;
+        font-size: 100px;
+        color: $light-blue;
+      }
+      &:before {
+        content:"\201C";
+        left: 0;
+        top: 30px;
+      }
+      &:after {
+        content:"\201D";
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+}

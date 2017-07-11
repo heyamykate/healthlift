@@ -1,0 +1,63 @@
+$light-blue: #008fd0;
+$dark-blue: #00608e;
+$white: #fff;
+$black: #000;
+
+// breakpoints
+@mixin device($device) {
+  @if $device == mobile {
+    @media (max-width: 430px) {
+      @content;
+    }
+  }
+  @if $device == tabletDown {
+    @media (max-width: 968px) {
+      @content;
+    }
+  }
+  @if $device == smallDesktop {
+    @media (max-width: 1399px) {
+      @content;
+    }
+  }
+  @if $device == wideDesktop {
+    @media (min-width: 1400px) {
+      @content;
+    }
+  }
+}
+
+@mixin font-smoothing($value: on) {
+    @if $value == on {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
+
+// 5s total time
+// animation happens over 20% of the time
+@keyframes nudge {
+  0% {
+    transform: translateY(0px);
+  }
+  5% {
+    transform: translateY(10px);
+  }
+  10% {
+    transform: translateY(1px);
+  }
+  15% {
+    transform: translateY(10px);
+  }
+  20% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+
+}

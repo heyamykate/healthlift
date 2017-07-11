@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% load staticfiles svg %}
+
+{% block content %}
+<div class="landing">
+
+  <div class="hero">
+    <div class="bg"
+     style="background-image:url({{ page.hero_bg.url }})"
+    ></div>
+    <div class="inner">
+      {% svg 'logo' %}
+    </div>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#companies">Companies</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <i id="arrow">
+      {% svg 'arrow' %}
+    </i>
+  </div>
+
+<div class="sections about" id="about">
+  <h2>Who We Are</h2>
+  <div class="inner">
+    <div class="img">
+      <img src="{% static 'img/vector-nurse-van.png' %}" />
+    </div>
+    <div class="copy">
+      <p>HealthLift is a health services technology company.</p>
+      <br />
+      <p>We bring healthcare to the patient and deliver on their needs by simplifying their ability to access care. With HealthLift, timely access to quality care has never been easier.</p>
+      <p>An innovative service that is built upon transparency and dependability, HealthLift is dedicated to making healthcare as individualized as each patient.</p>
+    </div>
+  </div>
+</div>
+
+<div class="spacer">
+  <div class="spacer-img"
+    style="background-image:url({% static 'img/bg-slc.jpg' %})"
+  ></div>
+</div>
+
+<div class="sections mission">
+  <h2>Our Mission</h2>
+  <div class="inner">
+    <div class="pullquote">
+      <blockquote>
+        The best way to predict the future is to create it.
+      </blockquote>
+      <h4 class="source">Peter Drucker</h4>
+    </div>
+    <div class="copy">
+      <p>Yuccie drinking vinegar hella, narwhal butcher typewriter photo booth art party. Echo park lomo tofu, fam green juice beard pabst small batch cornhole chartreuse. Hammock dreamcatcher cardigan vice, tilde migas slow-carb pug lumbersexual food truck jean shorts master cleanse hashtag palo santo. Polaroid cornhole truffaut, post-ironic craft beer adaptogen selvage bespoke raclette.</p>
+      <br />
+      <p>Selfies pop-up keffiyeh vice, VHS chambray sartorial distillery ramps narwhal pitchfork. Kickstarter copper mug lumbersexual tumeric jean shorts. Snackwave truffaut williamsburg adaptogen health goth mixtape tumeric fam palo santo pour-over jean shorts waistcoat yr shaman four dollar toast. Kitsch PBR&B street art 8-bit. Helvetica cronut heirloom selvage, portland man bun pop-up occupy drinking vinegar gentrify everyday carry pinterest banjo.</p>
+    </div>
+  </div>
+</div>
+
+<div class="spacer">
+  <div class="spacer-img"
+    style="background-image:url({% static 'img/mountains.jpg' %})"
+  ></div>
+</div>
+
+<div class="sections companies" id="companies">
+  <h2>Our Companies</h2>
+  <div class="inner">
+    <div class="logos">
+      <div class="company"
+       ontouchstart="this.classList.toggle('hover');">
+        <img src="{% static 'img/demo-logo.jpg' %}" alt="">
+        <div class="info-card">
+          <p>Plaid wolf schlitz, poutine polaroid subway tile adaptogen craft beer 3 wolf moon actually taiyaki green juice af.</p>
+          <a href="#" class="learn-more-btn">Learn More</a>
+        </div>
+      </div>
+      <div class="company"
+       ontouchstart="this.classList.toggle('hover');">
+        <img src="{% static 'img/logo-2.jpg' %}" alt="">
+        <div class="info-card">
+          <p>Plaid wolf schlitz, poutine polaroid subway tile adaptogen craft beer 3 wolf moon actually taiyaki green juice af.</p>
+          <a href="#" class="learn-more-btn">Learn More</a>
+        </div>
+      </div>
+      <div class="company"
+       ontouchstart="this.classList.toggle('hover');">
+        <img src="{% static 'img/logo-3.jpg' %}" alt="">
+        <div class="info-card">
+          <p>Plaid wolf schlitz, poutine polaroid subway tile adaptogen craft beer 3 wolf moon actually taiyaki green juice af.</p>
+          <a href="#" class="learn-more-btn">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="spacer">
+  <div class="spacer-img"
+    style="background-image:url({% static 'img/timp.jpg' %})"
+  ></div>
+</div>
+
+<div class="team sections" id="team">
+  <h2>Our Team</h2>
+  <div class="inner">
+    {% for employee in employees %}
+    <div class="bio"
+     ontouchstart="this.classList.toggle('hover');">
+      <div class="headshot"
+        style="background-image:url({{ employee.headshot.url }})">
+      </div>
+      <div class="info">
+        <p>{{ employee.bio }}</p>
+      </div>
+      <div class="title">
+        <h4>{{ employee.name }} // {{ employee.title }}</h4>
+      </div>
+    </div>
+    {% endfor %}
+    <div class="bio"
+     ontouchstart="this.classList.toggle('hover');">
+      <div class="headshot"
+        style="background-image:url({% static 'img/cam.jpg' %})">
+      </div>
+      <div class="info">
+        <p>Plaid wolf schlitz, poutine polaroid subway tile adaptogen craft beer 3 wolf moon actually taiyaki green juice af. Put a bird on it lo-fi edison bulb meggings knausgaard stumptown echo park drinking vinegar copper mug.</p>
+      </div>
+      <div class="title">
+        <h4>Cameron Anderson // CEO</h4>
+      </div>
+    </div>
+    <div class="bio"
+     ontouchstart="this.classList.toggle('hover');">
+      <div class="headshot"
+        style="background-image:url({% static 'img/cam.jpg' %})">
+      </div>
+      <div class="info">
+        <p>Plaid wolf schlitz, poutine polaroid subway tile adaptogen craft beer 3 wolf moon actually taiyaki green juice af. Put a bird on it lo-fi edison bulb meggings knausgaard stumptown echo park drinking vinegar copper mug.</p>
+      </div>
+      <div class="title">
+        <h4>Cameron Anderson // CEO</h4>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="spacer">
+    <div class="spacer-img"
+      style="background-image:url({% static 'img/timp.jpg' %})"
+    ></div>
+  </div>
+
+  <div class="sections contact" id="contact">
+    <h2>Get in Touch</h2>
+    <div class="inner">
+      <div class="form-wrapper">
+        <form method="POST" action="/contact" id="contact-form">
+          {% csrf_token %}
+          <div class="form-group">
+            <label>Name:</label>
+            <input name="name" type="text" placeholder="Name" required />
+          </div>
+          <div class="form-group">
+            <label>Email:</label>
+            <input name="email" type="email" placeholder="Email address" required />
+          </div>
+          <div class="form-group">
+            <label>Message:</label>
+            <textarea name="message" id="message" placeholder="Your message" cols="30" rows="10" required></textarea>
+          </div>
+          <div class="form-group btn-group">
+            <input class="submit" type="submit" name="submit" value="Submit" />
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

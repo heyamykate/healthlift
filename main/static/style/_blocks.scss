@@ -1,0 +1,69 @@
+.sections {
+  text-align: center;
+  padding: 100px 0px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 26px 29px -6px rgba(0,0,0,0.3);
+  z-index: 3;
+  @include device(mobile) {
+    padding: 45px 0px;
+  }
+  h2 {
+    text-align: center;
+    @include roboto-slab-reg;
+    font-size: 50px;
+    color: $light-blue;
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    &:after {
+      background: $light-blue;
+      height: 4px;
+      width: 35%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      bottom: -22px;
+      content: '';
+      @include device(mobile) {
+        height: 3px;
+      }
+    }
+    @include device(mobile) {
+      font-size: 34px;
+    }
+  }
+  .inner {
+    padding-top: 80px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include device(mobile) {
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 60px;
+    }
+  }
+}
+
+.spacer {
+  width: 100%;
+  position: relative;
+  height: 35vw;
+  z-index: 2;
+  @include device(mobile) {
+    height: 50vh;
+  }
+  .spacer-img {
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}

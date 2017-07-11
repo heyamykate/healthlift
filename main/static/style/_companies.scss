@@ -1,0 +1,115 @@
+.companies {
+  .logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    .company {
+      cursor: pointer;
+      overflow: hidden;
+      height: 250px;
+      width: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      align-items: center;
+      margin: 15px;
+      img {
+        width: 80%;
+        position: relative;
+        z-index: 1;
+        transition: all 0.25s ease;
+      }
+      .info-card {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        z-index: 2;
+        transition: all 0.3s ease-out;
+        background: rgba(250,250,250,0.7);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        p {
+          color: #000;
+          line-height: 1.3;
+          font-size: 13px;
+          @include roboto-slab-light;
+        }
+        .learn-more-btn {
+            border: 2px solid $light-blue;
+            text-align: center;
+            padding: 10px 19px;
+            @include roboto-med;
+            color: $light-blue;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            margin-top: 18px;
+            transition: transform 0.2s ease;
+            text-decoration: none;
+            &:hover {
+                transform: translateY(-1px);
+            }
+        }
+        .border {
+          position: absolute;
+          transition: all 0.35s ease;
+          background: $light-blue;
+          &.top {
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+          }
+          &.right {
+            top: 0;
+            right: 0;
+            height: 0%;
+            width: 2px;
+          }
+          &.bottom {
+            bottom: 0;
+            right: 0;
+            width: 0%;
+            height: 2px;
+
+          }
+          &.left {
+            bottom: 0;
+            left: 1px;
+            height: 0%;
+            width: 2px;
+          }
+        }
+      }
+      &:hover,
+      &.hover {
+        img {
+          opacity: 0.1;
+          transform: scale(0.8);
+        }
+        .info-card {
+          opacity: 1;
+          .border {
+            &.right,
+            &.left {
+              height: 100%;
+            }
+            &.bottom,
+            &.top {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
