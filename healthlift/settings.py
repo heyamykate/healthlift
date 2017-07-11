@@ -25,7 +25,7 @@ SECRET_KEY = ')r9y_%wn+1g2u#u#p!j&n@e5h&+i(p6&cy-@q0^14e$(rz3326'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['104.236.124.196','akcodes.com']
 
 SITE_TITLE = "HealthLift"
 
@@ -106,13 +106,23 @@ SUIT_CONFIG = {
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'staging',
+        'USER': 'stagingadmin',
+        'PASSWORD': 'Sup3rS0lid',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
