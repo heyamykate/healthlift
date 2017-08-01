@@ -33,7 +33,9 @@ def contact(request):
 
         try:
             contact.save()
+            return HttpResponse("Success!", status=200)
         except Exception:
             print('error')
+            return HttpResponse("Error!", status=400)
 
-        return HttpResponse("Success!", status=200)
+        #return HttpResponse("Success!", status=200)
