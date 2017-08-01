@@ -29,24 +29,26 @@
         font-size: 13px;
         letter-spacing: 1px;
         position: relative;
+        color: $light-blue;
         &:after {
             width: 0%;
             position: absolute;
-            bottom: -3px;
+            bottom: 0px;
             left: 0;
             right: 0;
             margin: 0 auto;
             height: 2px;
-            background: $dark-blue;
+            background: $light-blue;
             transition: 0.2s all ease;
             opacity: 0;
+            content: '';
         }
       }
       &:hover {
           a {
-              color: $dark-blue;
+              color: $light-blue;
               &:after {
-                  width: 90%;
+                  width: 73%;
                   opacity: 1;
               }
           }

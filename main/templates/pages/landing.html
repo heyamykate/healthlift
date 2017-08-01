@@ -5,9 +5,11 @@
 <div class="landing">
 
   <div class="hero">
+    {% if page.hero_bg %}
     <div class="bg"
      style="background-image:url({{ page.hero_bg.url }})"
     ></div>
+    {% endif %}
     <div class="inner">
       {% svg 'logo' %}
     </div>
@@ -23,84 +25,97 @@
   </div>
 
 <div class="sections about" id="about">
-  <h2>{{page.about_title}}</h2>
+  {% if page.about_title %}
+  <h2>{{ page.about_title }}</h2>
+  {% endif %}
+
   <div class="inner">
+    {% if page.about_image %}
     <div class="img">
       <img src="{{ page.about_image.url }}" />
     </div>
+    {% endif %}
+    {% if page.about_copy %}
     <div class="copy">
       {{ page.about_copy|safe }}
     </div>
+    {% endif %}
   </div>
 </div>
 
 <div class="spacer">
+  {% if page.spacer_image_1 %}
   <div class="spacer-img"
     style="background-image:url({{ page.spacer_image_1.url }})"
   ></div>
+  {% endif %}
 </div>
 
 <div class="sections mission">
+  {% if page.mission_title %}
   <h2>{{ page.mission_title }}</h2>
+  {% endif %}
+
   <div class="inner">
+    {% if page.pullquote %}
     <div class="pullquote">
       <blockquote>
-        The best way to predict the future is to create it.
+        {{ page.pullquote }}
       </blockquote>
-      <h4 class="source">Peter Drucker</h4>
+      <h4 class="source">{{ page.quote_source }}</h4>
     </div>
+    {% endif %}
+
+    {% if page.mission_copy %}
     <div class="copy">
       {{ page.mission_copy|safe }}
     </div>
+    {% endif %}
   </div>
 </div>
 
 <div class="spacer">
+  {% if page.spacer_image_2 %}
   <div class="spacer-img"
     style="background-image:url({{ page.spacer_image_2.url }})"
   ></div>
+  {% endif %}
 </div>
 
 <div class="sections companies" id="companies">
+  {% if page.companies_title %}
   <h2>Our Companies</h2>
+  {% endif %}
   <div class="inner">
     <div class="logos">
+      {% for item in companies %}
       <div class="company"
        ontouchstart="this.classList.toggle('hover');">
-        <img src="{% static 'img/demo-logo.jpg' %}" alt="">
+        <img src="{{ item.logo.url }}" alt="">
         <div class="info-card">
-          <p>Plaid wolf schlitz, poutine polaroid subway tile adaptogen craft beer 3 wolf moon actually taiyaki green juice af.</p>
-          <a href="#" class="learn-more-btn">Learn More</a>
+          <p>{{ item.info }}</p>
+          {% if item.link %}
+          <a href="{{ item.link }}" class="learn-more-btn">Learn More</a>
+          {% endif %}
         </div>
       </div>
-      <div class="company"
-       ontouchstart="this.classList.toggle('hover');">
-        <img src="{% static 'img/logo-2.jpg' %}" alt="">
-        <div class="info-card">
-          <p>Plaid wolf schlitz, poutine polaroid subway tile adaptogen craft beer 3 wolf moon actually taiyaki green juice af.</p>
-          <a href="#" class="learn-more-btn">Learn More</a>
-        </div>
-      </div>
-      <div class="company"
-       ontouchstart="this.classList.toggle('hover');">
-        <img src="{% static 'img/logo-3.jpg' %}" alt="">
-        <div class="info-card">
-          <p>Plaid wolf schlitz, poutine polaroid subway tile adaptogen craft beer 3 wolf moon actually taiyaki green juice af.</p>
-          <a href="#" class="learn-more-btn">Learn More</a>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </div>
 
 <div class="spacer">
+  {% if page.spacer_image_3 %}
   <div class="spacer-img"
     style="background-image:url({{ page.spacer_image_3.url }})"
   ></div>
+  {% endif %}
 </div>
 
 <div class="team sections" id="team">
+  {% if page.team_title %}
   <h2>Our Team</h2>
+  {% endif %}
   <div class="inner">
     {% for employee in employees %}
     <div class="bio"
@@ -120,9 +135,11 @@
   </div>
 
   <div class="spacer">
+    {% if page.spacer_image_4 %}
     <div class="spacer-img"
-      style="background-image:url({% static 'img/timp.jpg' %})"
+      style="background-image:url({{ page.spacer_image_4.url }})"
     ></div>
+    {% endif %}
   </div>
 
   <div class="sections contact" id="contact">
