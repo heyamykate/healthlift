@@ -23,6 +23,8 @@ def landing(request):
 
 def contact(request):
     if request.method == "POST":
+        print('request')
+        print(request)
         data = json.loads(request.body)
         name = data['name']
         email = data['email']
