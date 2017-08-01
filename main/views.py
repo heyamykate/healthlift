@@ -38,4 +38,4 @@ def contact(request):
             print('error')
             return HttpResponse("Error!", status=400)
 
-    return HttpResponse("Success!", status=200)
+    #return HttpResponse("Success!", status=200)

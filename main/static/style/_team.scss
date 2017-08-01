@@ -69,8 +69,7 @@
         font-size: 15px;
         line-height: 1.4;
         @include roboto-slab-reg;
-        text-align: justify;
-        text-align-last: center;
+        text-align: center;
         @include device(mobile) {
           font-size: 13px;
         }
