@@ -23,9 +23,7 @@ def landing(request):
 
 def contact(request):
     if request.method == "POST":
-        print('request')
-        print(request)
-        data = json.loads(request.body)
+        data = json.loads(request.body.decode('utf-8'))
         name = data['name']
         email = data['email']
         message = data['message']
@@ -40,4 +38,6 @@ def contact(request):
             print('error')
             return HttpResponse("Error!", status=400)
 
-    #return HttpResponse("Success!", status=200)
+    else:
+        print('get request')
+        return HttpResponse("Good to go", success=200)
