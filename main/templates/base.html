@@ -24,7 +24,9 @@
     </nav>
   {% block content %}
   {% endblock %}
-
+    <div class="footer">
+        <span>&copy; {% now "Y" %} HealthLift</span>
+    </div>
     <!-- scripts -->
     <script src="{% static 'dist/libs/libs.min.js' %}"></script>
     <script src="{% static 'dist/js/app.min.js' %}"></script>
