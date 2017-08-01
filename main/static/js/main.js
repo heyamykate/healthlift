@@ -72,7 +72,7 @@ $(document).ready(function() {
       });
 
       $.ajax({
-          url: '/contact/',
+          url: '/contact',
           type: "POST",
           data: JSON.stringify({ 'name': name, 'email': email, 'message': message }),
           success: function(response) {
