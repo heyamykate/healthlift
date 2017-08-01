@@ -80,6 +80,6 @@ class Contact(models.Model):
         return "Contact Request - {0}".format(self.name)
 
     class Meta:
-        ordering = ('date_of_contact', )
+        ordering = ('-date_of_contact', )
         verbose_name = "Contact Request"
         verbose_name_plural = "Contact Requests"

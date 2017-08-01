@@ -22,5 +22,7 @@ admin.site.register(Company, CompanyAdmin)
 class ContactAdmin(admin.ModelAdmin):
     model = Contact
     list_display = ('name', 'email', 'date_of_contact', 'contacted')
+    list_filter = ('contacted', 'date_of_contact')
+    search_fields = ['name', 'email']
 
 admin.site.register(Contact, ContactAdmin)
