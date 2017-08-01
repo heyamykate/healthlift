@@ -26,6 +26,30 @@
         display: inline-block;
         text-decoration: none;
         padding: 10px;
+        font-size: 13px;
+        letter-spacing: 1px;
+        position: relative;
+        &:after {
+            width: 0%;
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            height: 2px;
+            background: $dark-blue;
+            transition: 0.2s all ease;
+            opacity: 0;
+        }
+      }
+      &:hover {
+          a {
+              color: $dark-blue;
+              &:after {
+                  width: 90%;
+                  opacity: 1;
+              }
+          }
       }
     }
   }
