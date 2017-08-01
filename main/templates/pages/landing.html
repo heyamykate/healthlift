@@ -23,28 +23,25 @@
   </div>
 
 <div class="sections about" id="about">
-  <h2>Who We Are</h2>
+  <h2>{{page.about_title}}</h2>
   <div class="inner">
     <div class="img">
-      <img src="{% static 'img/vector-nurse-van.png' %}" />
+      <img src="{{ page.about_image.url }}" />
     </div>
     <div class="copy">
-      <p>HealthLift is a health services technology company.</p>
-      <br />
-      <p>We bring healthcare to the patient and deliver on their needs by simplifying their ability to access care. With HealthLift, timely access to quality care has never been easier.</p>
-      <p>An innovative service that is built upon transparency and dependability, HealthLift is dedicated to making healthcare as individualized as each patient.</p>
+      {{ page.about_copy|safe }}
     </div>
   </div>
 </div>
 
 <div class="spacer">
   <div class="spacer-img"
-    style="background-image:url({% static 'img/bg-slc.jpg' %})"
+    style="background-image:url({{ page.spacer_image_1.url }})"
   ></div>
 </div>
 
 <div class="sections mission">
-  <h2>Our Mission</h2>
+  <h2>{{ page.mission_title }}</h2>
   <div class="inner">
     <div class="pullquote">
       <blockquote>
@@ -53,16 +50,14 @@
       <h4 class="source">Peter Drucker</h4>
     </div>
     <div class="copy">
-      <p>Yuccie drinking vinegar hella, narwhal butcher typewriter photo booth art party. Echo park lomo tofu, fam green juice beard pabst small batch cornhole chartreuse. Hammock dreamcatcher cardigan vice, tilde migas slow-carb pug lumbersexual food truck jean shorts master cleanse hashtag palo santo. Polaroid cornhole truffaut, post-ironic craft beer adaptogen selvage bespoke raclette.</p>
-      <br />
-      <p>Selfies pop-up keffiyeh vice, VHS chambray sartorial distillery ramps narwhal pitchfork. Kickstarter copper mug lumbersexual tumeric jean shorts. Snackwave truffaut williamsburg adaptogen health goth mixtape tumeric fam palo santo pour-over jean shorts waistcoat yr shaman four dollar toast. Kitsch PBR&B street art 8-bit. Helvetica cronut heirloom selvage, portland man bun pop-up occupy drinking vinegar gentrify everyday carry pinterest banjo.</p>
+      {{ page.mission_copy|safe }}
     </div>
   </div>
 </div>
 
 <div class="spacer">
   <div class="spacer-img"
-    style="background-image:url({% static 'img/mountains.jpg' %})"
+    style="background-image:url({{ page.spacer_image_2.url }})"
   ></div>
 </div>
 
@@ -100,7 +95,7 @@
 
 <div class="spacer">
   <div class="spacer-img"
-    style="background-image:url({% static 'img/timp.jpg' %})"
+    style="background-image:url({{ page.spacer_image_3.url }})"
   ></div>
 </div>
 

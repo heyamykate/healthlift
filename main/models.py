@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
+from ckeditor.fields import RichTextField
 
 class Homepage(models.Model):
     """
@@ -9,9 +10,32 @@ class Homepage(models.Model):
     hero_bg = models.ImageField(upload_to="homepage/",
                                 blank=True,
                                 verbose_name="Hero BG Image")
+
+    # about section #
     about_title = models.CharField(max_length=200,
                                    blank=True,
                                    verbose_name="About Section Title")
+    about_copy = RichTextField(verbose_name="About Section Copy",
+                               blank=True, null=True)
+    about_image = models.ImageField(upload_to="homepage/",
+                                    blank=True, null=True,
+                                    verbose_name="About Image")
+
+    # mission section #
+    mission_title = models.CharField(max_length=180, blank=True, null=True, verbose_name="Mission Section Title")
+    mission_copy = RichTextField(verbose_name="Mission Section Copy",
+                               blank=True, null=True)
+
+    # spacer images #
+    spacer_image_1 = models.ImageField(upload_to="homepage/",
+                                       blank=True, null=True,
+                                       verbose_name="Spacer Image #1")
+    spacer_image_2 = models.ImageField(upload_to="homepage/",
+                                       blank=True, null=True,
+                                       verbose_name="Spacer Image #2")
+    spacer_image_3 = models.ImageField(upload_to="homepage/",
+                                       blank=True, null=True,
+                                       verbose_name="Spacer Image #3")
 
     def __unicode__(self):
         return "HomePage"
