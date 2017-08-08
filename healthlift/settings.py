@@ -27,7 +27,7 @@ SECRET_KEY = ')r9y_%wn+1g2u#u#p!j&n@e5h&+i(p6&cy-@q0^14e$(rz3326'
 DEBUG = False
 
 if DEBUG:
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['*']
 else:
     ALLOWED_HOSTS = ['104.236.124.196','akcodes.com','localhost','127.0.0.1']
 
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
     'adminsortable2',
     'main',
 ]
