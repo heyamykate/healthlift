@@ -68,5 +68,8 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    @include device(mobile) {
+        background-attachment: initial;
+    }
   }
 }
