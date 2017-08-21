@@ -58,6 +58,9 @@
     background-size: cover;
     background-attachment: fixed;
     filter: brightness(0.6);
+    @include device(mobile) {
+        background-attachment: initial;
+    }
   }
 
   #arrow {
