@@ -23,6 +23,8 @@ class Homepage(models.Model):
 
     # mission section #
     mission_title = models.CharField(max_length=180, blank=True, null=True, verbose_name="Mission Section Title")
+    pullquote = models.TextField(blank=True, null=True, verbose_name="Pull Quote (optional)")
+    quote_source = models.CharField(max_length=150, null=True, blank=True, verbose_name="Quote Source")
     mission_copy = RichTextField(verbose_name="Mission Section Copy",
                                blank=True, null=True)
 
@@ -36,6 +38,11 @@ class Homepage(models.Model):
     spacer_image_3 = models.ImageField(upload_to="homepage/",
                                        blank=True, null=True,
                                        verbose_name="Spacer Image #3")
+    spacer_image_4 = models.ImageField(upload_to="homepage/",
+                                       blank=True, null=True,
+                                       verbose_name="Spacer Image #4")
+    companies_title = models.CharField(max_length=150, null=True, blank=True, verbose_name="Companies Section Title", default="Our Companies")
+    team_title = models.CharField(max_length=150, null=True, blank=True, verbose_name="Team Section Title", default="Our Team")
 
     def __unicode__(self):
         return "HomePage"
