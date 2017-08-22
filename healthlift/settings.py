@@ -27,7 +27,7 @@ DEBUG = True
 #DEBUG = False
 
 if DEBUG:
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['*']
 else:
     ALLOWED_HOSTS = ['104.236.124.196','akcodes.com','localhost','127.0.0.1']
 
