@@ -66,9 +66,9 @@
       transition: top 0.4s ease;
       p {
         color: #000;
-        font-size: 15px;
-        line-height: 1.4;
-        @include roboto-slab-reg;
+        font-size: 13px;
+        line-height: 1.6;
+        @include roboto-slab-light;
         text-align: center;
         @include device(mobile) {
           font-size: 13px;

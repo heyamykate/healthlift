@@ -58,7 +58,7 @@ class Employee(models.Model):
                             blank=True)
     title = models.CharField(max_length=150,
                              blank=True)
-    bio = models.TextField(max_length=350,
+    bio = RichTextField(max_length=350,
                            blank=True,
                            help_text="Brief bio of employee.")
     headshot = models.ImageField(upload_to="employees/",
