@@ -44,7 +44,7 @@ class Homepage(models.Model):
     companies_title = models.CharField(max_length=150, null=True, blank=True, verbose_name="Companies Section Title", default="Our Companies")
     team_title = models.CharField(max_length=150, null=True, blank=True, verbose_name="Team Section Title", default="Our Team")
 
-    def __unicode__(self):
+    def __str__(self):
         return "HomePage"
 
 
@@ -65,8 +65,9 @@ class Employee(models.Model):
                                  blank=True,
                                  help_text="High res if possible.")
     my_order = models.PositiveIntegerField(default=0, blank=False, null=False)
-    def __unicode__(self):
-        return "Employee - {0}".format(self.name)
+
+    def __str__(self):
+        return "Employee - %s" % (self.name)
 
     class Meta:
         ordering = ('my_order',)
@@ -87,8 +88,8 @@ class Company(models.Model):
                             help_text="Optional link to company's site.")
     my_order = models.PositiveIntegerField(default=0, blank=False, null=False)
 
-    def __unicode__(self):
-        return self.name
+    def __str__(self):
+        return '%s' % (self.name)
 
     class Meta:
         ordering = ('my_order', )
@@ -107,8 +108,8 @@ class Contact(models.Model):
     contacted = models.BooleanField(default=False,
                                     verbose_name="Contacted?")
 
-    def __unicode__(self):
-        return "Contact Request - {0}".format(self.name)
+    def __str__(self):
+        return "Contact Request - %s" % (self.name)
 
     class Meta:
         ordering = ('-date_of_contact', )
