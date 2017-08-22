@@ -91,7 +91,9 @@
       {% for item in companies %}
       <div class="company"
        ontouchstart="this.classList.toggle('hover');">
+       {% if item.logo %}
         <img src="{{ item.logo.url }}" alt="">
+       {% endif %}
         <div class="info-card">
           <p>{{ item.info }}</p>
           {% if item.link %}
@@ -120,11 +122,15 @@
     {% for employee in employees %}
     <div class="bio"
      ontouchstart="this.classList.toggle('hover');">
+     {% if employee.headshot %}
       <div class="headshot"
         style="background-image:url({{ employee.headshot.url }})">
       </div>
+      {% endif %}
       <div class="info">
+        {% if employee.bio %}
         <p>{{ employee.bio }}</p>
+        {% endif %}
       </div>
       <div class="title">
         <h4>{{ employee.name }} // {{ employee.title }}</h4>
