@@ -5,6 +5,7 @@ import datetime
 
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.core.mail import send_mail
 
 from main.models import Homepage, Employee, Company, Contact
 
@@ -21,6 +22,13 @@ def landing(request):
     }
     return render(request, template, context)
 
+def send_contact_email(contact):
+    email_message = 'A new contact request has been received from {0}. Check the Health Lift Admin at health-lift.com/admin for more information.'.format(contact.name)
+    to_email = 'contact@health-lift.com'
+    from_email = 'contact@health-lift.com'
+    print(email_message)
+    send_mail('Contact Request', email_message, from_email, [to_email], fail_silently=False)
+
 def contact(request):
     if request.method == "POST":
         data = json.loads(request.body.decode('utf-8'))
@@ -28,16 +36,16 @@ def contact(request):
         email = data['email']
         message = data['message']
         date_of_contact = datetime.datetime.now()
-
         contact = Contact(name=name, email=email, message=message, date_of_contact=date_of_contact)
-
         try:
             contact.save()
-            return HttpResponse("Success!", status=200)
+            try:
+                send_contact_email(contact)
+                return HttpResponse("Good to go", status=200)
+            except Exception, e:
+                print('error: ', e)
         except Exception:
             print('error')
             return HttpResponse("Error!", status=400)
-
     else:
-        print('get request')
-        return HttpResponse("Good to go", success=200)
+        return HttpResponse("Good to go", status=200)
