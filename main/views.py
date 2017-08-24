@@ -42,8 +42,8 @@ def contact(request):
             try:
                 send_contact_email(contact)
                 return HttpResponse("Good to go", status=200)
-            except Exception, e:
-                print('error: ', e)
+            except Exception:
+                print('error: ', Exception)
         except Exception:
             print('error')
             return HttpResponse("Error!", status=400)
