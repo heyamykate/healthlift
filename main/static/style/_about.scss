@@ -13,6 +13,7 @@
       line-height: 1.6;
       @include device(mobile) {
         font-size: 16px;
+        text-align: justify;
       }
     }
   }
