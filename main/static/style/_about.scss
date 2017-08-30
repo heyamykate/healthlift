@@ -4,14 +4,14 @@
   .copy {
     width: 45%;
     text-align: left;
-    @include device(mobile) {
+    @include device(tabletDown) {
       width: 100%;
     }
     p {
       @include roboto-slab-light;
       font-size: 18px;
       line-height: 1.6;
-      @include device(mobile) {
+      @include device(tabletDown) {
         font-size: 16px;
         text-align: justify;
       }
@@ -20,7 +20,7 @@
   .img {
     width: 50%;
     position: relative;
-    @include device(mobile) {
+    @include device(tabletDown) {
       width: 100%;
       padding-bottom: 30px;
     }

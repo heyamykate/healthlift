@@ -45,7 +45,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @include device(mobile) {
+    @include device(tabletDown) {
       flex-direction: column;
       justify-content: center;
       padding-top: 60px;

@@ -11,7 +11,7 @@ $black: #000;
     }
   }
   @if $device == tabletDown {
-    @media (max-width: 968px) {
+    @media (max-width: 800px) {
       @content;
     }
   }
