@@ -114,3 +114,85 @@
     }
   }
 }
+
+.company-detail {
+  box-shadow: 0 26px 29px -6px rgba(0,0,0,0.3);
+  z-index: 3;
+  background: $white;
+  @include device(mobile) {
+    .sections {
+      padding-top: 45px;
+      padding-bottom: 0px;
+      .inner {
+        padding-top: 0;
+      }
+    }
+  }
+  .block-1 {
+    box-shadow: 0 -4px 29px -6px rgba(0,0,0,0.3);
+  }
+  .pullquote {
+    margin: 0 auto;
+    position: relative;
+    width: 45%;
+    @include device(mobile) {
+      width: 100%;
+      margin-bottom: 50px;
+      margin-top: 35px;
+      &.inner-pullquote {
+        margin-top: 0px;
+      }
+    }
+    blockquote {
+      margin:20px 0;
+      padding:0 50px;
+      font-size:150%;
+      line-height:100%;
+      &:before,
+      &:after {
+        position: absolute;
+        font-size: 100px;
+        color: $light-blue;
+      }
+      &:before {
+        content:"\201C";
+        left: 0;
+        top: 30px;
+      }
+      &:after {
+        content:"\201D";
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+  .copy {
+    width: 45%;
+    text-align: left;
+    @include device(tabletDown) {
+      width: 100%;
+    }
+    p {
+      @include roboto-slab-light;
+      font-size: 18px;
+      line-height: 1.6;
+      @include device(tabletDown) {
+        font-size: 16px;
+        text-align: justify;
+      }
+    }
+  }
+
+  .img {
+    width: 50%;
+    position: relative;
+    @include device(tabletDown) {
+      width: 100%;
+      padding-bottom: 30px;
+    }
+    img {
+      width: 100%;
+    }
+  }
+}
+

@@ -18,11 +18,12 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from main.views import landing, contact
+from main.views import landing, contact, company_detail
 
 urlpatterns = [
     url(r'^$', landing, name="home"),
     url(r'^contact/', contact, name="contact"),
     url(r'^admin/', admin.site.urls),
+    url(r'^companies/(?P<slug>[\w-]+)/$', company_detail, name="company_detail"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

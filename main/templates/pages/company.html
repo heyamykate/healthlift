@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% load staticfiles svg %}
+
+{% block content %}
+<div class="company-detail">
+
+    <div class="hero">
+        <div class="inner--fixed">
+            <img class="company-logo" src="{{ page.logo.url }}" alt="{{ page.name }}" />
+            <i id="arrow">
+              {% svg 'arrow' %}
+            </i>
+        </div>
+    </div>
+
+    {% if page.show_block_1 %}
+    <div class="sections block-1">
+        {% if page.show_company_name %}
+        <h2>{{ page.name }}</h2>
+        {% endif %}
+        {% if page.pullquote_1 and page.image_1 and page.text_block_1 %}
+        <div class="inner">
+            <div class="pullquote">
+                <blockquote>
+                    {{ page.pullquote_1 }}
+                </blockquote>
+                {% if page.pullquote_1_source %}
+                <h4 class="source">{{ page.pullquote_1_source }}</h4>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+        <div class="inner">
+            {% if page.image_1 %}
+            <div class="img">
+                <img src="{{ page.image_1.url }}" alt="" />
+            </div>
+            {% elif page.pullquote_1 and not page.image_1 %}
+            <div class="pullquote inner-pullquote">
+                <blockquote>
+                    {{ page.pullquote_1 }}
+                </blockquote>
+                <h4 class="source">{{ page.pullquote_1_source }}</h4>
+            </div>
+            {% endif %}
+            {% if page.text_block_1 %}
+            <div class="copy">
+                {{ page.text_block_1|safe }}
+            </div>
+            {% endif %}
+            {% if page.pullquote_1 and not page.text_block_1 %}
+            <div class="pullquote inner-pullquote">
+                <blockquote>
+                    {{ page.pullquote_1 }}
+                </blockquote>
+                <h4 class="source">{{ page.pullquote_1_source }}</h4>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if page.show_block_2 %}
+    <div class="sections block-2">
+        {% if page.pullquote_2 and page.image_2 and page.text_block_2 %}
+        <div class="inner">
+            <div class="pullquote">
+                <blockquote>
+                    {{ page.pullquote_2 }}
+                </blockquote>
+                {% if page.pullquote_2_source %}
+                <h4 class="source">{{ page.pullquote_2_source }}</h4>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+        <div class="inner">
+            {% if page.image_2 %}
+            <div class="img">
+                <img src="{{ page.image_2.url }}" alt="" />
+            </div>
+            {% elif page.pullquote_2 and not page.image_2 %}
+            <div class="pullquote inner-pullquote">
+                <blockquote>
+                    {{ page.pullquote_2 }}
+                </blockquote>
+                <h4 class="source">{{ page.pullquote_2_source }}</h4>
+            </div>
+            {% endif %}
+            {% if page.text_block_2 %}
+            <div class="copy">
+                {{ page.text_block_2|safe }}
+            </div>
+            {% endif %}
+            {% if page.pullquote_2 and not page.text_block_2 %}
+            <div class="pullquote inner-pullquote">
+                <blockquote>
+                    {{ page.pullquote_2 }}
+                </blockquote>
+                <h4 class="source">{{ page.pullquote_2_source }}</h4>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if page.show_block_3 %}
+    <div class="sections block-3">
+        {% if page.pullquote_3 and page.image_3 and page.text_block_3 %}
+        <div class="inner">
+            <div class="pullquote">
+                <blockquote>
+                    {{ page.pullquote_3 }}
+                </blockquote>
+                {% if page.pullquote_3_source %}
+                <h4 class="source">{{ page.pullquote_3_source }}</h4>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+        <div class="inner">
+            {% if page.image_3 %}
+            <div class="img">
+                <img src="{{ page.image_3.url }}" alt="" />
+            </div>
+            {% elif page.pullquote_3 and not page.image_3 %}
+            <div class="pullquote inner-pullquote">
+                <blockquote>
+                    {{ page.pullquote_3 }}
+                </blockquote>
+                <h4 class="source">{{ page.pullquote_3_source }}</h4>
+            </div>
+            {% endif %}
+            {% if page.text_block_3 %}
+            <div class="copy">
+                {{ page.text_block_3|safe }}
+            </div>
+            {% endif %}
+            {% if page.pullquote_3 and not page.text_block_3 %}
+            <div class="pullquote inner-pullquote">
+                <blockquote>
+                    {{ page.pullquote_3 }}
+                </blockquote>
+                <h4 class="source">{{ page.pullquote_3_source }}</h4>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

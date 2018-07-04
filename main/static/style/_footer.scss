@@ -3,6 +3,8 @@
     padding: 16px 0px;
     text-align: center;
     background: $light-blue;
+    position: relative;
+    z-index: 4;
     span {
         color: $white;
         font-size: 12px;
