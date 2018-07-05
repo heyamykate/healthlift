@@ -8,6 +8,9 @@ from ckeditor.fields import RichTextField
 class CompanyPage(models.Model):
     name = models.CharField(max_length=150,
                             blank=True)
+    external_site = models.CharField(max_length=150,
+                                     blank=True, null=True,
+                                     verbose_name="Site URL (optional)")
     show_company_name = models.BooleanField(default=True)
     slug = models.SlugField(blank=True, null=True,
                              max_length=150, default=name)
@@ -28,7 +31,7 @@ class CompanyPage(models.Model):
     image_1 = models.ImageField(upload_to="company_pages/", blank=True,
                               verbose_name="Image (optional)")
 
-    show_block_2 = models.BooleanField(default=True, verbose_name="Show Block #2 Content")
+    show_block_2 = models.BooleanField(default=False, verbose_name="Show Block #2 Content")
     text_block_2 = RichTextField(verbose_name="Text",
                                blank=True, null=True)
     pullquote_2 = models.TextField(blank=True, null=True,
@@ -38,7 +41,7 @@ class CompanyPage(models.Model):
     image_2 = models.ImageField(upload_to="company_pages/", blank=True,
                               verbose_name="Image (optional)")
 
-    show_block_3 = models.BooleanField(default=True, verbose_name="Show Block #3 Content")
+    show_block_3 = models.BooleanField(default=False, verbose_name="Show Block #3 Content")
     text_block_3 = RichTextField(verbose_name="Text",
                                blank=True, null=True)
     pullquote_3 = models.TextField(blank=True, null=True,

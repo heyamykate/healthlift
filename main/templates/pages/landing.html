@@ -95,10 +95,8 @@
         <img src="{{ item.logo.url }}" alt="">
        {% endif %}
         <div class="info-card">
-          <p>{{ item.info }}</p>
-          {% if item.link %}
-          <a href="{{ item.link }}" class="learn-more-btn">Learn More</a>
-          {% endif %}
+          <p>{{ item.short_description }}</p>
+          <a href="{% url 'company_detail' item.slug %}" class="learn-more-btn">Learn More</a>
         </div>
       </div>
       {% endfor %}

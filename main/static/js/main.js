@@ -3,7 +3,7 @@ $(document).ready(function() {
   function stickyNav(element, size) {
       var lastScrollTop = 0;
       var headerHeight = 105;
-      var topAmt = '-110px';
+      var topAmt = '-120px';
 
       var heroHeight = $('.hero').height();
       var scrollHeight = Math.round(heroHeight * 0.5);
@@ -40,7 +40,6 @@ $(document).ready(function() {
 
   function anchorScroll(event) {
       event.preventDefault();
-      console.log('anchorScroll');
       $root.animate({
           scrollTop: $($.attr(this, 'href')).offset().top - 40
       }, 500);
@@ -48,7 +47,7 @@ $(document).ready(function() {
   }
 
   $('.links a').on('click', anchorScroll);
-  $('.nav a').on('click', anchorScroll);
+  $('.nav .anchor-link').on('click', anchorScroll);
 
   function csrfSafeMethod(method) {
       // these HTTP methods do not require CSRF protection

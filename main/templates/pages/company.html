@@ -7,6 +7,9 @@
     <div class="hero">
         <div class="inner--fixed">
             <img class="company-logo" src="{{ page.logo.url }}" alt="{{ page.name }}" />
+            {% if page.external_site %}
+            <a class="learn-more-btn" href="{{ page.external_site }}">Learn More</a>
+            {% endif %}
             <i id="arrow">
               {% svg 'arrow' %}
             </i>
