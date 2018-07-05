@@ -103,7 +103,7 @@ class Homepage(models.Model):
     companies_title = models.CharField(max_length=150, null=True,
                                        blank=True, verbose_name="Companies Section Title",
                                        default="Our Companies")
-    companies_selector = models.ManyToManyField(CompanyPage, blank=True,
+    companies = models.ManyToManyField(CompanyPage, blank=True,
                                                 verbose_name="Company selector",
                                                 help_text="Select the companies you want to show on the homepage.")
     team_title = models.CharField(max_length=150, null=True,

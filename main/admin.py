@@ -20,7 +20,7 @@ class HomeAdmin(admin.ModelAdmin):
             'fields': ('companies_title', 'team_title',)
         }),
         ('Companies Grid', {
-            'fields': ('companies_selector',),
+            'fields': ('companies',),
         }),
         ('Spacer Images', {
             'fields': ('spacer_image_1', 'spacer_image_2', 'spacer_image_3', 'spacer_image_4',)

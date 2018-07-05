@@ -12,14 +12,51 @@
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"/>
   </head>
   <body>
-    <nav class="nav" id="sticky-header">
+    <nav class="nav" id="sticky-header" role="navigation">
       <img class="logo" src="{% static 'svg/logo.svg' %}" />
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#companies">Companies</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a class="anchor-link" href="#about">About</a></li>
+        <li class="dropdown-trigger">
+          <a class="anchor-link" href="#companies">Companies</a>
+          <ul class="dropdown">
+            {% for company in companies %}
+            <li>
+              <a href="{% url 'company_detail' company.slug %}">{{ company.name }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </li>
+        <li><a class="anchor-link" href="#team">Team</a></li>
+        <li><a class="anchor-link" href="#contact">Contact</a></li>
       </ul>
+    </nav>
+    <!-- mobile nav -->
+    <nav class="mobile-nav" role="navigation">
+      <div id="menuToggle">
+        <!--
+        A fake / hidden checkbox is used as click reciever,
+        so you can use the :checked selector on it.
+        -->
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li href="#" class="submenu">
+            <a href="#">Companies</a>
+            <ul>
+              {% for company in companies %}
+              <li>
+                <a href="{% url 'company_detail' company.slug %}">{{ company.name }}</a>
+              </li>
+              {% endfor %}
+            </ul>
+          </li>
+        </ul>
+      </div>
     </nav>
   {% block content %}
   {% endblock %}

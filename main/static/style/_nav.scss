@@ -10,7 +10,7 @@
   background: $white;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   box-shadow: 0 26px 45px -16px rgba(0,0,0,0.1);
   @include device(tabletDown) {
       display: none;
@@ -49,7 +49,7 @@
         }
       }
       &:hover {
-          a {
+          a.anchor-link {
               color: $light-blue;
               &:after {
                   width: 73%;
@@ -58,5 +58,88 @@
           }
       }
     }
+  }
+
+  .dropdown {
+    position: absolute;
+    background: $white;
+    width: auto;
+    bottom: -57px;
+  }
+  .dropdown-trigger {
+    position: relative;
+    a {
+      white-space: nowrap;
+    }
+    &:hover {
+      .dropdown {
+        left: 0;
+      }
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+
+  ul {
+      background: $white;
+      list-style: none;
+      margin: 0;
+      padding-left: 0;
+  }
+
+  li {
+      color: #fff;
+      background: $white;
+      display: block;
+      float: left;
+      padding: 1rem;
+      position: relative;
+      text-decoration: none;
+      transition-duration: 0.3s;
+  }
+
+  li a {
+      color: #fff;
+  }
+
+  li:hover,
+  li:focus-within {
+      background: $white;
+      cursor: pointer;
+  }
+
+  li:focus-within a {
+      outline: none;
+  }
+
+  ul li ul {
+      background: $white;
+      visibility: hidden;
+      opacity: 0;
+      min-width: 5rem;
+      position: absolute;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+      left: 0;
+      display: none;
+  }
+
+  ul li:hover > ul,
+  ul li:focus-within > ul,
+  ul li ul:hover,
+  ul li ul:focus {
+      visibility: visible;
+      opacity: 1;
+      display: block
+  }
+
+  ul li:hover .dropdown {
+      box-shadow: rgba(0,0,0,0.11) -4px 6px 8px;
+  }
+
+  ul li ul li {
+      clear: both;
+      width: 100%;
   }
 }
