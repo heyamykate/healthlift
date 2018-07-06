@@ -51,7 +51,7 @@ class CompanyPageAdmin(admin.ModelAdmin):
     model = CompanyPage
     fieldsets = (
         (None, {
-            'fields': ('logo', 'name', 'show_company_name', 'external_site',)
+            'fields': ('logo', 'name', 'show_company_name', 'external_site', 'short_description',)
         }),
         ('Block #1', {
             'fields': ('show_block_1', 'text_block_1', 'pullquote_1', 'pullquote_1_source', 'image_1',)
