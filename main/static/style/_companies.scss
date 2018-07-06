@@ -122,10 +122,7 @@
   @include device(mobile) {
     .sections {
       padding-top: 45px;
-      padding-bottom: 0px;
-      .inner {
-        padding-top: 0;
-      }
+      padding-bottom: 45px;
     }
   }
   .learn-more-btn {

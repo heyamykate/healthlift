@@ -18,9 +18,9 @@
       </a>
       <ul>
         {% if request.resolver_match.url_name == 'company_detail' %}
-        <li><a href="/#about">About</a></li>
+        <li><a class="hover-underline" href="/#about">About</a></li>
         <li class="dropdown-trigger">
-          <a href="/#companies">Companies</a>
+          <a class="hover-underline" href="/#companies">Companies</a>
           <ul class="dropdown">
             {% for company in companies %}
             <li>
@@ -29,12 +29,12 @@
             {% endfor %}
           </ul>
         </li>
-        <li><a href="/#team">Team</a></li>
-        <li><a href="/#contact">Contact</a></li>
+        <li><a class="hover-underline" href="/#team">Team</a></li>
+        <li><a class="hover-underline" href="/#contact">Contact</a></li>
         {% else %}
-        <li><a class="anchor-link" href="#about">About</a></li>
+        <li><a class="anchor-link hover-underline" href="#about">About</a></li>
         <li class="dropdown-trigger">
-          <a class="anchor-link" href="#companies">Companies</a>
+          <a class="anchor-link hover-underline" href="#companies">Companies</a>
           <ul class="dropdown">
             {% for company in companies %}
             <li>
@@ -43,8 +43,8 @@
             {% endfor %}
           </ul>
         </li>
-        <li><a class="anchor-link" href="#team">Team</a></li>
-        <li><a class="anchor-link" href="#contact">Contact</a></li>
+        <li><a class="anchor-link hover-underline" href="#team">Team</a></li>
+        <li><a class="anchor-link hover-underline" href="#contact">Contact</a></li>
         {% endif %}
       </ul>
 
