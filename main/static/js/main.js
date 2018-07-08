@@ -25,10 +25,13 @@ $(document).ready(function() {
   function checkSize() {
     var minWidth = 969;
     var width = $(window).width();
+    var isCompanyPage = window.location.pathname.includes('companies');
+    if (isCompanyPage) {
+      $('.nav').addClass('non-sticky-header');
+      return;
+    }
     if (width > minWidth) {
         stickyNav('#sticky-header', 'desktop');
-    } else {
-        stickyNav('.mobile-header', 'mobile');
     }
   }
 
