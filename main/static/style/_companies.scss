@@ -125,6 +125,28 @@
       padding-bottom: 45px;
     }
   }
+  .sections {
+    &.no-padding-bottom {
+      padding-bottom: 0px;
+    }
+  }
+  .bg {
+    z-index: 1;
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    transform: translateZ(0);
+    will-change: transform;
+    opacity: 0.45;
+  }
+  .inner--fixed {
+    z-index: 2;
+  }
   .learn-more-btn {
       border: 2px solid $light-blue;
       text-align: center;
@@ -137,8 +159,9 @@
       margin-top: 40px;
       transition: transform 0.2s ease;
       text-decoration: none;
+      background: rgba(250,250,250,0.8);
       &:hover {
-          transform: translateY(-1px);
+          transform: translateY(-2px);
       }
   }
   .block-1 {

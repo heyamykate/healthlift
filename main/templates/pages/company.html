@@ -5,6 +5,11 @@
 <div class="company-detail">
 
     <div class="hero">
+        {% if page.hero_bg %}
+        <div class="bg"
+         style="background-image:url({{ page.hero_bg.url }})"
+        ></div>
+        {% endif %}
         <div class="inner--fixed">
             <img class="company-logo" src="{{ page.logo.url }}" alt="{{ page.name }}" />
             {% if page.external_site %}
@@ -17,7 +22,7 @@
     </div>
 
     {% if page.show_block_1 %}
-    <div class="sections block-1">
+    <div class="sections block-1 {% if page.show_block_2 or page.show_block_3 %}no-padding-bottom{% endif %}">
         {% if page.show_company_name %}
         <h2>{{ page.name }}</h2>
         {% endif %}
@@ -64,7 +69,7 @@
     {% endif %}
 
     {% if page.show_block_2 %}
-    <div class="sections block-2">
+    <div class="sections block-2 {% if page.show_block_3 %}no-padding-bottom{% endif %}">
         {% if page.pullquote_2 and page.image_2 and page.text_block_2 %}
         <div class="inner">
             <div class="pullquote">

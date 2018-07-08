@@ -14,6 +14,10 @@ class CompanyPage(models.Model):
     show_company_name = models.BooleanField(default=True)
     slug = models.SlugField(blank=True, null=True,
                              max_length=150, default=name)
+    hero_bg = models.ImageField(upload_to="company_pages/",
+                                 null=True, blank=True,
+                                 verbose_name="Background Hero Image",
+                                 help_text="If you don't upload a background image, the background will default to white.")
     logo = models.ImageField(upload_to="company_pages/",
                              blank=True,
                              help_text="Preferably a transparent PNG. This logo will be layered on top of the white hero background.")
