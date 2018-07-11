@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.contrib import admin
 from adminsortable2.admin import SortableAdminMixin
 from main.models import Homepage, Employee, Company, Contact, CompanyPage
+from main.forms import CompanyForm
 
 class HomeAdmin(admin.ModelAdmin):
     model = Homepage
@@ -36,6 +37,7 @@ admin.site.register(Employee, EmployeeAdmin)
 
 class CompanyAdmin(SortableAdminMixin, admin.ModelAdmin):
     model = Company
+    form = CompanyForm
 
 admin.site.register(Company, CompanyAdmin)
 
@@ -51,7 +53,7 @@ class CompanyPageAdmin(admin.ModelAdmin):
     model = CompanyPage
     fieldsets = (
         (None, {
-            'fields': ('logo', 'name', 'show_company_name', 'hero_bg', 'external_site', 'short_description',)
+            'fields': ('logo', 'name', 'show_company_name', 'hero_bg', 'external_site',)
         }),
         ('Block #1', {
             'fields': ('show_block_1', 'text_block_1', 'pullquote_1', 'pullquote_1_source', 'image_1',)

@@ -6,30 +6,26 @@ from django.http import HttpResponse
 from django.core.mail import send_mail
 from main.models import Homepage, Employee, Company, Contact, CompanyPage
 
+def navigation():
+    dropdowns = CompanyPage.objects.all()
+    return dropdowns
 
 def landing(request):
     template = "pages/landing.html"
     page = Homepage.objects.first()
+    nav_companies = navigation()
     employees = Employee.objects.all()
-    companies = page.companies.all()
 
-    context = {
-        'page': page,
-        'employees': employees,
-        'companies': companies
-    }
-
-    return render(request, template, context)
+    return render(request, template, {'page':page, 'employees':employees, 'nav_companies': nav_companies})
 
 
 def company_detail(request, slug):
     template = "pages/company.html"
     homepage = Homepage.objects.first()
-    companies = homepage.companies.all()
-
+    nav_companies = navigation()
     page = get_object_or_404(CompanyPage, slug=slug)
 
-    return render(request, template, {'page':page, 'companies': companies})
+    return render(request, template, {'page':page, 'nav_companies': nav_companies})
 
 
 def send_contact_email(contact):

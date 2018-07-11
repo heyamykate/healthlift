@@ -21,9 +21,6 @@ class CompanyPage(models.Model):
     logo = models.ImageField(upload_to="company_pages/",
                              blank=True,
                              help_text="Preferably a transparent PNG. This logo will be layered on top of the white hero background.")
-    short_description = models.TextField(blank=True, null=True,
-                                         verbose_name="Short description of company",
-                                         help_text="This will show on the homepage for this company.")
 
     show_block_1 = models.BooleanField(default=True, verbose_name="Show Block #1 Content")
     text_block_1 = RichTextField(verbose_name="Text",
@@ -68,6 +65,33 @@ class CompanyPage(models.Model):
         self.slug = slugify(self.name)
         super(CompanyPage, self).save(*args, **kwargs)
 
+class Company(models.Model):
+    name = models.CharField(max_length=150,
+                            blank=True)
+    logo = models.ImageField(upload_to="companies/",
+                             blank=True,
+                             help_text="Preferably a transparent PNG.")
+    info = models.TextField(max_length=350,
+                            blank=True,
+                            help_text="Brief description of company.")
+    link = models.CharField(max_length=150,
+                            blank=True,
+                            help_text="Optional external link to company's site.")
+    company_page = models.OneToOneField(CompanyPage,
+                                       on_delete=models.CASCADE,
+                                       blank=True,
+                                       null=True)
+    my_order = models.PositiveIntegerField(default=0,
+                                           blank=False,
+                                           null=False)
+
+    def __str__(self):
+        return '%s' % (self.name)
+
+    class Meta:
+        ordering = ('my_order', )
+        verbose_name = "Company"
+        verbose_name_plural = "Companies"
 
 class Homepage(models.Model):
     """
@@ -110,9 +134,9 @@ class Homepage(models.Model):
     companies_title = models.CharField(max_length=150, null=True,
                                        blank=True, verbose_name="Companies Section Title",
                                        default="Our Companies")
-    companies = models.ManyToManyField(CompanyPage, blank=True,
-                                                verbose_name="Company selector",
-                                                help_text="Select the companies you want to show on the homepage.")
+    companies = models.ManyToManyField(Company, blank=True,
+                                       verbose_name="Company selector",
+                                       help_text="Select the companies you want to show on the homepage.")
     team_title = models.CharField(max_length=150, null=True,
                                   blank=True,
                                   verbose_name="Team Section Title",
@@ -146,28 +170,6 @@ class Employee(models.Model):
         ordering = ('my_order',)
         verbose_name = "Employee"
         verbose_name_plural = "Employees"
-
-class Company(models.Model):
-    name = models.CharField(max_length=150,
-                            blank=True)
-    logo = models.ImageField(upload_to="companies/",
-                             blank=True,
-                             help_text="Preferably a transparent PNG.")
-    info = models.TextField(max_length=350,
-                            blank=True,
-                            help_text="Brief description of company.")
-    link = models.CharField(max_length=150,
-                            blank=True,
-                            help_text="Optional link to company's site.")
-    my_order = models.PositiveIntegerField(default=0, blank=False, null=False)
-
-    def __str__(self):
-        return '%s' % (self.name)
-
-    class Meta:
-        ordering = ('my_order', )
-        verbose_name = "Company"
-        verbose_name_plural = "Companies"
 
 class Contact(models.Model):
     name = models.CharField(max_length=200,

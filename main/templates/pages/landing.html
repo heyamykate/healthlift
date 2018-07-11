@@ -88,15 +88,19 @@
   {% endif %}
   <div class="inner">
     <div class="logos">
-      {% for item in companies %}
+      {% for item in page.companies.all %}
       <div class="company"
        ontouchstart="this.classList.toggle('hover');">
        {% if item.logo %}
         <img src="{{ item.logo.url }}" alt="">
        {% endif %}
         <div class="info-card">
-          <p>{{ item.short_description }}</p>
-          <a href="{% url 'company_detail' item.slug %}" class="learn-more-btn">Learn More</a>
+          <p>{{ item.info }}</p>
+          {% if item.company_page %}
+          <a href="{% url 'company_detail' item.company_page.slug %}" class="learn-more-btn">Learn More</a>
+          {% elif item.link %}
+          <a href="{{item.link}}" class="learn-more-btn">Learn More</a>
+          {% endif %}
         </div>
       </div>
       {% endfor %}

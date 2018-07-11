@@ -22,9 +22,9 @@
         <li class="dropdown-trigger">
           <a class="hover-underline" href="/#companies">Companies</a>
           <ul class="dropdown">
-            {% for company in companies %}
+            {% for item in nav_companies %}
             <li>
-              <a href="{% url 'company_detail' company.slug %}">{{ company.name }}</a>
+              <a href="{% url 'company_detail' item.slug %}">{{ item.name }}</a>
             </li>
             {% endfor %}
           </ul>
@@ -36,9 +36,9 @@
         <li class="dropdown-trigger">
           <a class="anchor-link hover-underline" href="#companies">Companies</a>
           <ul class="dropdown">
-            {% for company in companies %}
+            {% for item in nav_companies %}
             <li>
-              <a href="{% url 'company_detail' company.slug %}">{{ company.name }}</a>
+              <a href="{% url 'company_detail' item.slug %}">{{ item.name }}</a>
             </li>
             {% endfor %}
           </ul>
