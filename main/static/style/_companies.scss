@@ -31,13 +31,13 @@
         opacity: 0;
         z-index: 2;
         transition: all 0.3s ease-out;
-        background: rgba(250,250,250,0.7);
+        background: rgba(250, 250, 250, 0.7);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         padding: 20px;
-        text-align: left;
+        text-align: center;
         p {
           color: #000;
           line-height: 1.4;
@@ -45,20 +45,20 @@
           @include roboto-slab-light;
         }
         .learn-more-btn {
-            border: 2px solid $light-blue;
-            text-align: center;
-            padding: 10px 19px;
-            @include roboto-med;
-            color: $light-blue;
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 1px;
-            margin-top: 18px;
-            transition: transform 0.2s ease;
-            text-decoration: none;
-            &:hover {
-                transform: translateY(-1px);
-            }
+          border: 2px solid $light-blue;
+          text-align: center;
+          padding: 10px 19px;
+          @include roboto-med;
+          color: $light-blue;
+          text-transform: uppercase;
+          font-size: 13px;
+          letter-spacing: 1px;
+          margin-top: 18px;
+          transition: transform 0.2s ease;
+          text-decoration: none;
+          &:hover {
+            transform: translateY(-1px);
+          }
         }
         .border {
           position: absolute;
@@ -81,7 +81,6 @@
             right: 0;
             width: 0%;
             height: 2px;
-
           }
           &.left {
             bottom: 0;
@@ -111,6 +110,135 @@
           }
         }
       }
+    }
+  }
+}
+
+.company-detail {
+  box-shadow: 0 26px 29px -6px rgba(0, 0, 0, 0.3);
+  z-index: 3;
+  background: $white;
+  @include device(mobile) {
+    .sections {
+      padding-top: 45px;
+      padding-bottom: 45px;
+    }
+  }
+  .sections {
+    &.no-padding-bottom {
+      padding-bottom: 0px;
+    }
+  }
+  .bg {
+    z-index: 1;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    opacity: 0.45;
+    @include device(tabletDown) {
+      background-attachment: initial;
+    }
+  }
+  .inner--fixed {
+    z-index: 2;
+    @include device(tabletDown) {
+      position: relative;
+    }
+  }
+  .learn-more-btn {
+    border: 2px solid $light-blue;
+    text-align: center;
+    padding: 15px 36px;
+    @include roboto-med;
+    color: $light-blue;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-top: 40px;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    background: rgba(250, 250, 250, 0.8);
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+  .block-1 {
+    box-shadow: 0 -4px 29px -6px rgba(0, 0, 0, 0.3);
+  }
+  .full-width-image {
+    width: 100%;
+    text-align: center;
+    img {
+      width: 100%;
+    }
+  }
+  .pullquote {
+    margin: 0 auto;
+    position: relative;
+    width: 45%;
+    @include device(mobile) {
+      width: 100%;
+      margin-bottom: 50px;
+      margin-top: 35px;
+      &.inner-pullquote {
+        margin-top: 0px;
+      }
+    }
+    blockquote {
+      margin: 20px 0;
+      padding: 0 50px;
+      font-size: 150%;
+      line-height: 100%;
+      &:before,
+      &:after {
+        position: absolute;
+        font-size: 100px;
+        color: $light-blue;
+      }
+      &:before {
+        content: "\201C";
+        left: 0;
+        top: 30px;
+      }
+      &:after {
+        content: "\201D";
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+  .copy {
+    width: 45%;
+    text-align: left;
+    @include device(tabletDown) {
+      width: 100%;
+    }
+    p {
+      @include roboto-slab-light;
+      font-size: 18px;
+      line-height: 1.6;
+      @include device(tabletDown) {
+        font-size: 16px;
+        text-align: justify;
+      }
+    }
+  }
+
+  .img {
+    width: 50%;
+    position: relative;
+    @include device(tabletDown) {
+      width: 100%;
+      padding-bottom: 30px;
+    }
+    img {
+      width: 100%;
     }
   }
 }
