@@ -6,9 +6,11 @@ from django.http import HttpResponse
 from django.core.mail import send_mail
 from main.models import Homepage, Employee, Company, Contact, CompanyPage
 
+
 def navigation():
     dropdowns = CompanyPage.objects.all()
     return dropdowns
+
 
 def landing(request):
     template = "pages/landing.html"
@@ -16,7 +18,7 @@ def landing(request):
     nav_companies = navigation()
     employees = Employee.objects.all()
 
-    return render(request, template, {'page':page, 'employees':employees, 'nav_companies': nav_companies})
+    return render(request, template, {'page': page, 'employees': employees, 'nav_companies': nav_companies})
 
 
 def company_detail(request, slug):
@@ -25,14 +27,16 @@ def company_detail(request, slug):
     nav_companies = navigation()
     page = get_object_or_404(CompanyPage, slug=slug)
 
-    return render(request, template, {'page':page, 'nav_companies': nav_companies})
+    return render(request, template, {'page': page, 'nav_companies': nav_companies})
 
 
 def send_contact_email(contact):
-    email_message = 'A new contact request has been received from {0}. Check the Health Lift Admin at health-lift.com/admin for more information.'.format(contact.name)
+    email_message = 'A new contact request has been received from {0}. Check the Health Lift Admin at health-lift.com/admin for more information.'.format(
+        contact.name)
     to_email = 'contact@health-lift.com'
     from_email = 'contact@health-lift.com'
-    send_mail('Contact Request', email_message, from_email, [to_email], fail_silently=False)
+    send_mail('Contact Request', email_message,
+              from_email, [to_email], fail_silently=False)
 
 
 def contact(request):
@@ -42,7 +46,8 @@ def contact(request):
         email = data['email']
         message = data['message']
         date_of_contact = datetime.datetime.now()
-        contact = Contact(name=name, email=email, message=message, date_of_contact=date_of_contact)
+        contact = Contact(name=name, email=email,
+                          message=message, date_of_contact=date_of_contact)
         try:
             contact.save()
             try:

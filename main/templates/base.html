@@ -1,89 +1,103 @@
 {% load staticfiles svg %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <!-- stylesheet -->
-    <link rel="stylesheet" href="{% static 'dist/style/main.css' %}" />
-    <title>HealthLift</title>
-    <!-- Favicons -->
-    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"/>
-  </head>
-  <body>
-    <nav class="nav" id="sticky-header" role="navigation">
-      <a class="logo" href="{% url 'home' %}">
-        <img class="logo" src="{% static 'svg/logo.svg' %}" />
-      </a>
-      <ul>
-        {% if request.resolver_match.url_name == 'company_detail' %}
-        <li><a class="hover-underline" href="/#about">About</a></li>
-        <li class="dropdown-trigger">
-          <a class="hover-underline" href="/#companies">Companies</a>
-          <ul class="dropdown">
-            {% for item in nav_companies %}
-            <li>
-              <a href="{% url 'company_detail' item.slug %}">{{ item.name }}</a>
-            </li>
-            {% endfor %}
-          </ul>
-        </li>
-        <li><a class="hover-underline" href="/#team">Team</a></li>
-        <li><a class="hover-underline" href="/#contact">Contact</a></li>
-        {% else %}
-        <li><a class="anchor-link hover-underline" href="#about">About</a></li>
-        <li class="dropdown-trigger">
-          <a class="anchor-link hover-underline" href="#companies">Companies</a>
-          <ul class="dropdown">
-            {% for item in nav_companies %}
-            <li>
-              <a href="{% url 'company_detail' item.slug %}">{{ item.name }}</a>
-            </li>
-            {% endfor %}
-          </ul>
-        </li>
-        <li><a class="anchor-link hover-underline" href="#team">Team</a></li>
-        <li><a class="anchor-link hover-underline" href="#contact">Contact</a></li>
-        {% endif %}
-      </ul>
 
-    </nav>
-    <!-- mobile nav -->
-    <nav class="mobile-nav" role="navigation">
-      <div id="menuToggle">
-        <!--
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="{% static 'dist/style/main.css' %}" />
+  <title>HealthLift</title>
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" />
+</head>
+
+<body>
+  <nav class="nav" id="sticky-header" role="navigation">
+    <a class="logo" href="{% url 'home' %}">
+      <img class="logo" src="{% static 'svg/logo.svg' %}" />
+    </a>
+    <ul>
+      {% if request.resolver_match.url_name == 'company_detail' %}
+      <li>
+        <a class="hover-underline" href="/#about">About</a>
+      </li>
+      <li class="dropdown-trigger">
+        <a class="hover-underline" href="/#companies">Companies</a>
+        <ul class="dropdown">
+          {% for item in nav_companies %}
+          <li>
+            <a href="{% url 'company_detail' item.slug %}">{{ item.name }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+      <li>
+        <a class="hover-underline" href="/#team">Team</a>
+      </li>
+      <li>
+        <a class="hover-underline" href="/#contact">Contact</a>
+      </li>
+      {% else %}
+      <li>
+        <a class="anchor-link hover-underline" href="#about">About</a>
+      </li>
+      <li class="dropdown-trigger">
+        <a class="anchor-link hover-underline" href="#companies">Companies</a>
+        <ul class="dropdown">
+          {% for item in nav_companies %}
+          <li>
+            <a href="{% url 'company_detail' item.slug %}">{{ item.name }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+      <li>
+        <a class="anchor-link hover-underline" href="#team">Team</a>
+      </li>
+      <li>
+        <a class="anchor-link hover-underline" href="#contact">Contact</a>
+      </li>
+      {% endif %}
+    </ul>
+
+  </nav>
+  <!-- mobile nav -->
+  <nav class="mobile-nav" role="navigation">
+    <div id="menuToggle">
+      <!--
         A fake / hidden checkbox is used as click reciever,
         so you can use the :checked selector on it.
         -->
-        <input type="checkbox" />
-        <span></span>
-        <span></span>
-        <span></span>
-        <ul id="menu">
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li href="#" class="submenu">
-            <a href="#">Companies</a>
-            <ul>
-              {% for company in companies %}
-              <li>
-                <a href="{% url 'company_detail' company.slug %}">{{ company.name }}</a>
-              </li>
-              {% endfor %}
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  {% block content %}
-  {% endblock %}
-    <div class="footer">
-        <span>&copy; {% now "Y" %} HealthLift</span>
+      <input type="checkbox" />
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul id="menu">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li href="#" class="submenu">
+          <a href="#">Companies</a>
+          <ul>
+            {% for company in nav_companies %}
+            <li>
+              <a href="{% url 'company_detail' company.slug %}">{{ company.name }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </li>
+      </ul>
     </div>
-    <!-- scripts -->
-    <script src="{% static 'dist/libs/libs.min.js' %}"></script>
-    <script src="{% static 'dist/js/app.min.js' %}"></script>
-  </body>
+  </nav>
+  {% block content %} {% endblock %}
+  <div class="footer">
+    <span>&copy; {% now "Y" %} HealthLift</span>
+  </div>
+  <!-- scripts -->
+  <script src="{% static 'dist/libs/libs.min.js' %}"></script>
+  <script src="{% static 'dist/js/app.min.js' %}"></script>
+</body>
+
 </html>
