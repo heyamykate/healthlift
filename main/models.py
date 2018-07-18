@@ -5,6 +5,7 @@ from django.template.defaultfilters import slugify
 
 from ckeditor.fields import RichTextField
 
+
 class CompanyPage(models.Model):
     name = models.CharField(max_length=150,
                             blank=True)
@@ -13,44 +14,53 @@ class CompanyPage(models.Model):
                                      verbose_name="Site URL (optional)")
     show_company_name = models.BooleanField(default=True)
     slug = models.SlugField(blank=True, null=True,
-                             max_length=150, default=name)
+                            max_length=150, default=name)
     hero_bg = models.ImageField(upload_to="company_pages/",
-                                 null=True, blank=True,
-                                 verbose_name="Background Hero Image",
-                                 help_text="If you don't upload a background image, the background will default to white.")
+                                null=True, blank=True,
+                                verbose_name="Background Hero Image",
+                                help_text="If you don't upload a background image, the background will default to white.")
     logo = models.ImageField(upload_to="company_pages/",
                              blank=True,
                              help_text="Preferably a transparent PNG. This logo will be layered on top of the white hero background.")
 
-    show_block_1 = models.BooleanField(default=True, verbose_name="Show Block #1 Content")
+    show_block_1 = models.BooleanField(
+        default=True, verbose_name="Show Block #1 Content")
     text_block_1 = RichTextField(verbose_name="Text",
-                               blank=True, null=True)
+                                 blank=True, null=True)
     pullquote_1 = models.TextField(blank=True, null=True,
-                                 verbose_name="Pullquote (optional)")
+                                   verbose_name="Pullquote (optional)")
     pullquote_1_source = models.CharField(max_length=150, blank=True,
-                                        verbose_name="Pullquote source (optional)")
+                                          verbose_name="Pullquote source (optional)")
     image_1 = models.ImageField(upload_to="company_pages/", blank=True,
-                              verbose_name="Image (optional)")
+                                verbose_name="Image (optional)")
+    full_width_image_1 = models.ImageField(upload_to="company_pages/", blank=True,
+                                           null=True, verbose_name="Full Width Image")
 
-    show_block_2 = models.BooleanField(default=False, verbose_name="Show Block #2 Content")
+    show_block_2 = models.BooleanField(
+        default=False, verbose_name="Show Block #2 Content")
     text_block_2 = RichTextField(verbose_name="Text",
-                               blank=True, null=True)
+                                 blank=True, null=True)
     pullquote_2 = models.TextField(blank=True, null=True,
-                                 verbose_name="Pullquote (optional)")
+                                   verbose_name="Pullquote (optional)")
     pullquote_2_source = models.CharField(max_length=150, blank=True,
-                                        verbose_name="Pullquote source (optional)")
+                                          verbose_name="Pullquote source (optional)")
     image_2 = models.ImageField(upload_to="company_pages/", blank=True,
-                              verbose_name="Image (optional)")
+                                verbose_name="Image (optional)")
+    full_width_image_2 = models.ImageField(upload_to="company_pages/", blank=True,
+                                           null=True, verbose_name="Full Width Image")
 
-    show_block_3 = models.BooleanField(default=False, verbose_name="Show Block #3 Content")
+    show_block_3 = models.BooleanField(
+        default=False, verbose_name="Show Block #3 Content")
     text_block_3 = RichTextField(verbose_name="Text",
-                               blank=True, null=True)
+                                 blank=True, null=True)
     pullquote_3 = models.TextField(blank=True, null=True,
-                                 verbose_name="Pullquote (optional)")
+                                   verbose_name="Pullquote (optional)")
     pullquote_3_source = models.CharField(max_length=150, blank=True,
-                                        verbose_name="Pullquote source (optional)")
+                                          verbose_name="Pullquote source (optional)")
     image_3 = models.ImageField(upload_to="company_pages/", blank=True,
-                              verbose_name="Image (optional)")
+                                verbose_name="Image (optional)")
+    full_width_image_3 = models.ImageField(upload_to="company_pages/", blank=True,
+                                           null=True, verbose_name="Full Width Image")
     my_order = models.PositiveIntegerField(default=0, blank=False, null=False)
 
     def __str__(self):
@@ -65,6 +75,7 @@ class CompanyPage(models.Model):
         self.slug = slugify(self.name)
         super(CompanyPage, self).save(*args, **kwargs)
 
+
 class Company(models.Model):
     name = models.CharField(max_length=150,
                             blank=True)
@@ -78,9 +89,9 @@ class Company(models.Model):
                             blank=True,
                             help_text="Optional external link to company's site.")
     company_page = models.OneToOneField(CompanyPage,
-                                       on_delete=models.CASCADE,
-                                       blank=True,
-                                       null=True)
+                                        on_delete=models.CASCADE,
+                                        blank=True,
+                                        null=True)
     my_order = models.PositiveIntegerField(default=0,
                                            blank=False,
                                            null=False)
@@ -92,6 +103,7 @@ class Company(models.Model):
         ordering = ('my_order', )
         verbose_name = "Company"
         verbose_name_plural = "Companies"
+
 
 class Homepage(models.Model):
     """
@@ -145,10 +157,10 @@ class Homepage(models.Model):
     def __str__(self):
         return "HomePage"
 
-
     class Meta:
         verbose_name = "Home Page"
         verbose_name_plural = "Home Pages"
+
 
 class Employee(models.Model):
     name = models.CharField(max_length=150,
@@ -156,8 +168,8 @@ class Employee(models.Model):
     title = models.CharField(max_length=150,
                              blank=True)
     bio = RichTextField(max_length=450,
-                           blank=True,
-                           help_text="Brief bio of employee.")
+                        blank=True,
+                        help_text="Brief bio of employee.")
     headshot = models.ImageField(upload_to="employees/",
                                  blank=True,
                                  help_text="High res if possible.")
@@ -170,6 +182,7 @@ class Employee(models.Model):
         ordering = ('my_order',)
         verbose_name = "Employee"
         verbose_name_plural = "Employees"
+
 
 class Contact(models.Model):
     name = models.CharField(max_length=200,
@@ -190,4 +203,3 @@ class Contact(models.Model):
         ordering = ('-date_of_contact', )
         verbose_name = "Contact Request"
         verbose_name_plural = "Contact Requests"
-

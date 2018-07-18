@@ -31,7 +31,7 @@
         opacity: 0;
         z-index: 2;
         transition: all 0.3s ease-out;
-        background: rgba(250,250,250,0.7);
+        background: rgba(250, 250, 250, 0.7);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -45,20 +45,20 @@
           @include roboto-slab-light;
         }
         .learn-more-btn {
-            border: 2px solid $light-blue;
-            text-align: center;
-            padding: 10px 19px;
-            @include roboto-med;
-            color: $light-blue;
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 1px;
-            margin-top: 18px;
-            transition: transform 0.2s ease;
-            text-decoration: none;
-            &:hover {
-                transform: translateY(-1px);
-            }
+          border: 2px solid $light-blue;
+          text-align: center;
+          padding: 10px 19px;
+          @include roboto-med;
+          color: $light-blue;
+          text-transform: uppercase;
+          font-size: 13px;
+          letter-spacing: 1px;
+          margin-top: 18px;
+          transition: transform 0.2s ease;
+          text-decoration: none;
+          &:hover {
+            transform: translateY(-1px);
+          }
         }
         .border {
           position: absolute;
@@ -81,7 +81,6 @@
             right: 0;
             width: 0%;
             height: 2px;
-
           }
           &.left {
             bottom: 0;
@@ -116,7 +115,7 @@
 }
 
 .company-detail {
-  box-shadow: 0 26px 29px -6px rgba(0,0,0,0.3);
+  box-shadow: 0 26px 29px -6px rgba(0, 0, 0, 0.3);
   z-index: 3;
   background: $white;
   @include device(mobile) {
@@ -132,7 +131,7 @@
   }
   .bg {
     z-index: 1;
-    position: fixed;
+    position: absolute;
     display: block;
     top: 0;
     left: 0;
@@ -140,32 +139,44 @@
     height: 100%;
     background-size: cover;
     background-position: center center;
-    transform: translateZ(0);
-    will-change: transform;
+    background-attachment: fixed;
     opacity: 0.45;
+    @include device(tabletDown) {
+      background-attachment: initial;
+    }
   }
   .inner--fixed {
     z-index: 2;
+    @include device(tabletDown) {
+      position: relative;
+    }
   }
   .learn-more-btn {
-      border: 2px solid $light-blue;
-      text-align: center;
-      padding: 15px 36px;
-      @include roboto-med;
-      color: $light-blue;
-      text-transform: uppercase;
-      font-size: 14px;
-      letter-spacing: 1px;
-      margin-top: 40px;
-      transition: transform 0.2s ease;
-      text-decoration: none;
-      background: rgba(250,250,250,0.8);
-      &:hover {
-          transform: translateY(-2px);
-      }
+    border: 2px solid $light-blue;
+    text-align: center;
+    padding: 15px 36px;
+    @include roboto-med;
+    color: $light-blue;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-top: 40px;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    background: rgba(250, 250, 250, 0.8);
+    &:hover {
+      transform: translateY(-2px);
+    }
   }
   .block-1 {
-    box-shadow: 0 -4px 29px -6px rgba(0,0,0,0.3);
+    box-shadow: 0 -4px 29px -6px rgba(0, 0, 0, 0.3);
+  }
+  .full-width-image {
+    width: 100%;
+    text-align: center;
+    img {
+      width: 100%;
+    }
   }
   .pullquote {
     margin: 0 auto;
@@ -180,10 +191,10 @@
       }
     }
     blockquote {
-      margin:20px 0;
-      padding:0 50px;
-      font-size:150%;
-      line-height:100%;
+      margin: 20px 0;
+      padding: 0 50px;
+      font-size: 150%;
+      line-height: 100%;
       &:before,
       &:after {
         position: absolute;
@@ -191,12 +202,12 @@
         color: $light-blue;
       }
       &:before {
-        content:"\201C";
+        content: "\201C";
         left: 0;
         top: 30px;
       }
       &:after {
-        content:"\201D";
+        content: "\201D";
         right: 0;
         bottom: 0;
       }
@@ -231,4 +242,3 @@
     }
   }
 }
-
